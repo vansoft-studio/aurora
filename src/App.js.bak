@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import './App.css';
+import SimpleTable from './components/TestTable'
+import { Grid } from '@material-ui/core';
+
+class App extends Component {
+  render () {
+  return (
+      <div className='App'>
+        <Grid item xs={8}>
+          <SimpleTable
+            TableHeader={{ 1: 'Name', 2: 'Age' }}
+            TableData={[{ 1: 'Sankar', 2: '21' }, { 1: 'Aji', 2: '23' }]} 
+            CheckBox />
+        </Grid>
+    </div>
+    )
+}
+}
+export default App
