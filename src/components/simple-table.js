@@ -4,7 +4,7 @@
  *  Checkbox  {bool}  default is false
  *    If defined adds a check box to the table
  *  Switch {Intiger} default 0
- *    If non-zero assums the value to be a coloumn number to 
+ *    If non-zero assums the value to be a coloumn number to
  *    dispplayed as switch
  *  Delete {bool}  default is false
  *    If defined adds a delete icon to each row
@@ -27,15 +27,20 @@ import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
 import Checkbox from '@material-ui/core/Checkbox'
 import Switch from '@material-ui/core/Switch'
+import Avatar from '@material-ui/core/Avatar'
 
 /**
  * Creates a material table with given data.
  */
 class SimpleTable extends Component {
+  constructor (props) {
+    super(props)
+    this.imageContext = require.context('../../public/assets/images/avatars/', true)
+  }
+
   /**
    * Create material table cells
-   * @param {*} oneRow An object with elements of
-   * one table row
+   * @param {*} oneRow An object with elements of one table row
    * @param {bools} isHeader if true the rows are part of the header
    */
   makeTableCells (oneRow, isHeader = false) {
@@ -43,14 +48,19 @@ class SimpleTable extends Component {
 
     for (var key in oneRow) {
       /**
-       * If Switch property defined and 
+       * If Switch property defined and
        * this is the coloumn for switch value and
        * This is not the table header, then render the switch
        */
-      if ( this.props.Switch && (this.props.Switch == key) && !isHeader ) {
-        tableCells.push(<TableCell><Switch checked={oneRow[key]}></Switch></TableCell>)
-      }
-      else {
+      if (this.props.Switch && (this.props.Switch == key) && !isHeader) {
+        tableCells.push(<TableCell> <Switch checked={oneRow[key]} /></TableCell>)
+      } else if ((key == '1') && !isHeader) {
+        tableCells.push(
+          <TableCell style={{ alignItems: 'center', display: 'flex' }}>
+            <Avatar src={this.imageContext(oneRow[key].avatar)} />
+            <div style={{ padding: '5px' }}>{oneRow[key].name}</div>
+          </TableCell>)
+      } else {
         tableCells.push(<TableCell>{oneRow[key]}</TableCell>)
       }
     }
