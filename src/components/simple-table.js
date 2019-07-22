@@ -79,7 +79,7 @@ class SimpleTable extends Component {
         <Table >
           {/**
           * Note, table header below is passed as an array, because the
-          * funtion makeTableRows takes an array
+          * funtion makeTableRows takes an array inserted
           */}
           <TableHead>{this.makeTableRows([this.props.TableHeader], true)}</TableHead>
           {/** Here the table body is alreay an array */}
