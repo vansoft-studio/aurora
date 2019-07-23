@@ -1,14 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import NavBar from './component/contact'
-
+import React, { component } from 'react'
+import ContactPage from './component/contact_page.js'
 function App() {
   return (
-    <div className="App-header">
-      <NavBar></NavBar>
+    <div className="App">
+      <div className="App-header" >
+        <ContactPage></ContactPage>
+      </div>
     </div>
   );
 }
-
-export default App
+export default App;

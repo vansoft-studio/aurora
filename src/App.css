@@ -1,80 +1,81 @@
 .App {
+  
+}
+/* css for heading text*/
+.header_text{
+  color:white;
+  font-size: 50%;
+ 
+}
+/*tag line text css*/
+.tagline_text{
+  font-size: 2%;
+  float: left;
+  color: gold;
+  font-size:100%;
+  
+  font-weight: bolder;
+ 
+}
+/* TextFeild styling*/
+.input_box{
+  
+  
+  
+  
+  
+}
+/* seperated styling for message box*/
+.message_box{
+  
+ 
+  
+  
+}
+/* common button styling */
+.button {
+  background-color:deepskyblue;
+  border: none;
+  color: white;
+  padding-top:45px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom:45px;
+  
+  
   text-align: center;
+  font: bold;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  
+  border-radius:50%;
+  
+  
+  border-radius:50%;
+  
+  
+  
+  
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
-  background-image: url("images/4.jpg");
+  background-image:  url("images/contact_blured_city.jpg");
   background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-
 }
-.header{
-  font-family: monospace;
+/* Addind style to get transperent input box*/
+.input_box_background{
+  background-color:#CBCAC9;
+  opacity: .4;
+  color: aliceblue;
 }
-.msg{
-  float:right;
-  width: 200PX;
-  padding-right:290px;
-  padding-top:70px;
-}
-.contact{
-
-border: block 8;
-border-block-start-style: solid;
-width:300px;
-float: left;
-
-
-  
-
-}
-p{
-  font-family: cursive;
-  color: brown;
-  font-weight:bolder;
-  font-size: 40px;
-
-
-
-}
-
-  
-
-.main{
-  text-align: center;
+.gridClass{
  
-  width: 800px;
-  margin-left:35%; 
-  margin-top:95px;
-  height: 650px;
- 
-
 }
-.quote{
+.submit{
   
-  background-size: cover;
-}
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
