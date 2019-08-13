@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 .App-header {
-  background-image: url("../src/images/ww.jpg");
+  background-image: url("../src/images/background.jpg");
   background-size: cover;
   min-height: 100vh;
   display: flex;

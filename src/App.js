@@ -3,7 +3,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
-import Timer from './components/timer'
+import Timer from './components/timer-component'
 /* Grid setting in responsive */
 const useStyles = makeStyles((theme) => createStyles({
   root: {

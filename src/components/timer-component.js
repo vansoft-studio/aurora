@@ -1,9 +1,9 @@
 /*  this is a timer-component */
 import React, { Component } from 'react'
 import '../App.css'
-import SimpleTable from './table'
+import SimpleTable from './employee-table'
 import { Grid } from '@material-ui/core'
-import MenuBar from './menu'
+import MenuBar from './menu-bar'
 /* inserting table data */
 const tableHeader = { 1: 'Name', 2: 'Age', 3: 'Gender', 4: 'Member', 5: 'Email', 6: 'Status' }
 const tableData = [{ 1: { name: 'Michael Brown', avatar: './14.jpg' }, 2: '21', 3: 'M', 4: true, 5: 'michaelus123@gmail.com', 6: { status: 'Manager' } },
