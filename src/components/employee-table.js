@@ -28,7 +28,10 @@ import TableCell from '@material-ui/core/TableCell'
 import Checkbox from '@material-ui/core/Checkbox'
 import Switch from '@material-ui/core/Switch'
 import Avatar from '@material-ui/core/Avatar'
-
+import Chip from '@material-ui/core/Chip'
+import '../App.css'
+import { Grid } from '@material-ui/core'
+const MAX_COUNTER = 5
 /**
  * Creates a material table with given data.
  */
@@ -36,6 +39,30 @@ class SimpleTable extends Component {
   constructor (props) {
     super(props)
     this.imageContext = require.context('../../public/assets/images/avatars/', true)
+    this.state = { counter: 0 }
+  }
+
+  componentDidMount () {
+    this.timerID = setInterval(
+      () => this.tick(),
+      750)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timerID)
+  }
+
+  tick () {
+    this.setState((state) => {
+      if (state.counter > MAX_COUNTER) {
+        clearInterval(this.timerID)
+      } else {
+        return {
+          counter: state.counter + 1
+        }
+      }
+    }
+    )
   }
 
   /**
@@ -45,25 +72,36 @@ class SimpleTable extends Component {
    */
   makeTableCells (oneRow, isHeader = false) {
     const tableCells = []
-
+    const showCheck = this.state.counter >= 1
+    const showSwitch = this.state.counter >= 2
+    const showAvatar = this.state.counter >= 3
+    const showIcon = this.state.counter >= 4
+    const showChip = this.state.counter >= 5
+    showCheck && tableCells.push(<TableCell padding='checkbox'> <Checkbox /> </TableCell>)
     for (var key in oneRow) {
       /**
-       * If Switch property defined and
-       * this is the coloumn for switch value and
-       * This is not the table header, then render the switch
-       */
-      if (this.props.Switch && (this.props.Switch == key) && !isHeader) {
+     * If Switch property defined and
+     * this is the coloumn for switch value and
+     * This is not the table header, then render the switch
+     */
+      if (showSwitch && (this.props.Switch === key) && !isHeader) {
         tableCells.push(<TableCell> <Switch checked={oneRow[key]} /></TableCell>)
-      } else if ((key == '1') && !isHeader) {
+      } else if ((key === '1') && !isHeader) {
         tableCells.push(
           <TableCell style={{ alignItems: 'center', display: 'flex' }}>
-            <Avatar src={this.imageContext(oneRow[key].avatar)} />
-            <div style={{ padding: '5px' }}>{oneRow[key].name}</div>
+            {showAvatar && <Avatar src={this.imageContext(oneRow[key].avatar)} />}
+            <div style={{ padding: '5%' }}>{oneRow[key].name}</div>
           </TableCell>)
+      } else if ((key === '6') && !isHeader) {
+        tableCells.push(<TableCell >{showChip &&
+          <Chip color='secondary' label={oneRow[key].status} />}
+        </TableCell>)
       } else {
         tableCells.push(<TableCell>{oneRow[key]}</TableCell>)
       }
     }
+    showIcon && tableCells.push(<TableCell padding='checkbox'>  {<i class='material-icons'>edit</i>}
+      {<i class='material-icons'>delete</i>} </TableCell>)
 
     return tableCells
   }
@@ -74,29 +112,28 @@ class SimpleTable extends Component {
   * @param {bools} isHeader if true the rows are part of the header
   */
   makeTableRows (tableData, isHeader = false) {
-    const checkBox = this.props.CheckBox ? <TableCell padding='checkbox'> <Checkbox /> </TableCell> : null
-
     return (tableData.map((row) => {
       return (<TableRow>
-        {checkBox}
+
         {this.makeTableCells(row, isHeader)}
+
       </TableRow>)
     }))
   }
 
   render () {
     return (
-      <div>
+      <Grid >
         <Table >
           {/**
           * Note, table header below is passed as an array, because the
-          * funtion makeTableRows takes an array
+          * function makeTableRows takes an array
           */}
-          <TableHead>{this.makeTableRows([this.props.TableHeader], true)}</TableHead>
-          {/** Here the table body is alreay an array */}
-          <TableBody>{this.makeTableRows(this.props.TableData)}</TableBody>
+          <TableHead id='tablehead'>{this.makeTableRows([this.props.TableHeader], true)}</TableHead>
+          {/** Here the table body is already an array */}
+          <TableBody id='tablebody'>{this.makeTableRows(this.props.TableData)}</TableBody>
         </Table>
-      </div >
+      </Grid>
     )
   }
 }
