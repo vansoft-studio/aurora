@@ -74,7 +74,7 @@
     opacity: 1;
   }
 }
-.bg_img {
+.background_login_img {
   background-image: url("../src/images/Web.jpg");
   background-size: cover;
   display: flex;

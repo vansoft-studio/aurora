@@ -8,7 +8,6 @@ import material ui grid to make responsive
 import css to get all properties defined
 import material ui typing component typography
 import material ui box all style functions can be used
-
 */
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -22,12 +21,9 @@ import { GoogleLoginButton } from "react-social-login-buttons";
 import { useTheme } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-
-
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     height: '100vh',
-
   },
   textfield: {
     paddingLeft: '5%',
@@ -43,8 +39,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       width: '70%',
       height: '100%',
     },
-
-
   },
 
   login: {
@@ -65,8 +59,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       height: '100%',
       paddingLeft: '25%',
     },
-
   },
+
   buttons: {
     width: '98%',
     height: '0%',
@@ -78,25 +72,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     fontSize: '20px',
     fontFamily: 'Roboto,sans-serif',
     marginLeft: '1%',
-    [theme.breakpoints.down('sm')]: {
-
-    },
-
   },
+
   links: {
     paddingTop: '5%',
     paddingLeft: '5%',
     paddingRight: '5%',
   },
+
   label: {
     color: 'blue',
   },
+
   buttonall: {
     paddingLeft: '5%',
     paddingRight: '5%',
   },
-
 }));
+
 const config = {
   text: "Login with Facebook",
   icon: "facebook",
@@ -109,9 +102,7 @@ function Login() {
   const theme = useTheme()
   const classes = useStyles()
 
-
   return (
-
     <React.Fragment>
       <CssBaseline />
       <Grid item xs={12} className={classes.login} textAlign="center" >
@@ -142,7 +133,6 @@ function Login() {
               id="password"
               autoComplete="current-password"
             />
-
             <FormControlLabel className={classes.label}
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -160,9 +150,7 @@ function Login() {
             </Grid>
           </Grid>
           <div className={classes.links}>
-
             <Grid container  >
-
               <Grid item>
                 <Link href="#" variant="body2">
                   {" Forgot password? Don't have an account? Sign Up"}
@@ -170,11 +158,9 @@ function Login() {
               </Grid>
             </Grid>
           </div>
-
         </Grid>
       </Grid>
     </React.Fragment>
-
   );
 }
 
