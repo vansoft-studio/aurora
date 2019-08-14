@@ -431,3 +431,48 @@ font-family:verdana,sans-serif;
 
 
 /* react,angular end*/
+
+
+
+/* social network begin*/
+
+
+
+.social_pic{
+  position: relative;
+  top: -59%;
+  left: 30%;
+   
+}
+.contact{
+
+    position: relative;
+    bottom: 125%;
+    left: 37.5%;
+}
+.text_no1{
+
+  position: relative;
+  align-content: center;
+  color: black;
+  font-size: 100%;
+  
+ 
+  top: -18%;
+  left: -5%;
+}
+
+.for__groundimg{
+
+  background-image: url(../src/images/background_image.jpg);
+  background-size: cover;
+  height: 100vh;
+ 
+ 
+}
+
+/* social network end*/
+
+
+
+

@@ -5,7 +5,11 @@ import { Grid } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 import Timer from './components/timer-component'
 
+import SocialNetwork from './components/socialnetwork'
+
+
 import Slideshow from './components/image-slider'
+
 import Loginpage from './components/loginmain'
 import Contact from './components/contact-page'
 
@@ -75,15 +79,27 @@ function App() {
   return (
 
     <Grid>
+
+
+    <Grid>
       <Grid>
         <Slideshow />
       </Grid>
+
       <Grid className='App-header'>
         <Grid container className={classes.Container}>
           <Grid item xs={12} md={12} className={classes.simpleText} />
           <Grid item xs={12} md={7} className={classes.Table}>
             {/* timer calling */}
             <Timer style={{ width: '100%' }} />
+
+
+          </Grid>
+          {/* text field */}
+          <Grid item xs={12} md={5} sm={8} className={classes.text} >
+            <b>Impress the curious <br />Customers with data !</b>
+          </Grid>
+
 
           </Grid>
           {/* text field */}
@@ -103,13 +119,19 @@ function App() {
         <Grid item xs={12} md={5} sm={8} className={classes.text} >
           <b>Impress the curious <br />Customers with data !</b>
 
+
         </Grid>
       </Grid>
+
+      <Grid><SocialNetwork /></Grid>
+
+    </Grid>
       <div className='App-head' >
         <Contact />
       </div>
     </Grid>
 </Grid>
+
   )
 }
 export default App
