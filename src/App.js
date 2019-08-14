@@ -4,6 +4,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 import Timer from './components/timer-component'
+import Slideshow from './components/image-slider'
 /* Grid setting in responsive */
 const useStyles = makeStyles((theme) => createStyles({
   root: {
@@ -64,21 +65,25 @@ const useStyles = makeStyles((theme) => createStyles({
     }
   }
 }))
-function App () {
+function App() {
   const classes = useStyles()
   return (
+    <Grid>
+      <Grid>
+        <Slideshow />
+      </Grid>
+      <Grid className='App-header'>
+        <Grid container className={classes.Container}>
+          <Grid item xs={12} md={12} className={classes.simpleText} />
+          <Grid item xs={12} md={7} className={classes.Table}>
+            {/* timer calling */}
+            <Timer style={{ width: '100%' }} />
 
-    <Grid className='App-header'>
-      <Grid container className={classes.Container}>
-        <Grid item xs={12} md={12} className={classes.simpleText} />
-        <Grid item xs={12} md={7} className={classes.Table}>
-          {/* timer calling */}
-          <Timer style={{ width: '100%' }} />
-
-        </Grid>
-        {/* text field */}
-        <Grid item xs={12} md={5} sm={8} className={classes.text} >
-          <b>Impress the curious <br />Customers with data !</b>
+          </Grid>
+          {/* text field */}
+          <Grid item xs={12} md={5} sm={8} className={classes.text} >
+            <b>Impress the curious <br />Customers with data !</b>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
