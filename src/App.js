@@ -5,6 +5,8 @@ import { Grid } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 import Timer from './components/timer-component'
 import SocialNetwork from './components/socialnetwork'
+import Loginpage from './components/loginmain'
+import Contact from './components/contact-page'
 
 /* Grid setting in responsive */
 const useStyles = makeStyles((theme) => createStyles({
@@ -84,9 +86,16 @@ function App () {
           </Grid>
         </Grid>
       </Grid>
+
       <Grid><SocialNetwork /></Grid>
 
     </Grid>
+      <div className='App-head' >
+        <Contact />
+      </div>
+    </Grid>
+</Grid>
+
   )
 }
 export default App
