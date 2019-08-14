@@ -74,4 +74,13 @@
     opacity: 1;
   }
 }
+.bg_img {
+  background-image: url("../src/images/Web.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height:100vh;
+}
 
