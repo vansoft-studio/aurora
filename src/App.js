@@ -1,6 +1,6 @@
 import './App.css'
 import React from 'react'
-import MainChart from './component/mainchart'
+import MainChart from './components/mainchart'
 function App () {
   return (
     <div className='App'>
