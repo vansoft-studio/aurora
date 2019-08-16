@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import { useTheme, mergeClasses } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => createStyles({

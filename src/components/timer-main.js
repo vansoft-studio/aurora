@@ -1,9 +1,12 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
+import Timer from '../components/timer-component'
 
+/* Grid setting in responsive */
 const useStyles = makeStyles((theme) => createStyles({
-
+  root: {
+  },
   Container: {
     height: '100vh'
   },
@@ -19,37 +22,32 @@ const useStyles = makeStyles((theme) => createStyles({
       height: '0%'
     }
   },
-  Images: {
-    position: 'relative',
-    left: '-8%',
-    top: '-9%',
-
+  Table: {
     height: '80%',
-
     [theme.breakpoints.down('md')]: {
-      height: '60%'
-
+      height: '70%',
+      width: '30%'
     },
     [theme.breakpoints.down('sm')]: {
-      height: '50%'
-
+      height: '60%',
+      width: '30%'
     },
     [theme.breakpoints.down('xs')]: {
-      height: '50%'
-
+      height: '60%',
+      width: '20%'
     }
   },
-  Text: {
+  text: {
     height: '80%',
+    width: '100%',
     fontSize: '300%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
-
     [theme.breakpoints.down('md')]: {
-      height: '40%',
+      height: '30%',
       width: '50%',
       fontSize: '200%'
     },
@@ -61,31 +59,29 @@ const useStyles = makeStyles((theme) => createStyles({
     [theme.breakpoints.down('xs')]: {
       height: '40%',
       width: '40%',
-      fontSize: '140%'
+      fontSize: '200%'
     }
-
   }
-}))
-function Pageaws () {
+}
+))
+function Timermain () {
   const classes = useStyles()
   return (
-    <Grid className='forground1'>
-      <Grid container className={classes.Container} classname='App-header' >
+
+    <Grid className='App-header'>
+      <Grid container className={classes.Container}>
         <Grid item xs={12} md={12} className={classes.simpleText} />
-        <Grid item xs={12} md={6} className={classes.Images}>
-          <img className='azura__image' src={require(`../images/azura_image.png`)} width='450%' height='160%' />
+        <Grid item xs={12} md={7} className={classes.Table}>
+          {/* timer calling */}
+          <Timer style={{ width: '100%' }} />
         </Grid>
-        <Grid item xs={12} md={6} className={classes.Text} >
-          <img className='cloud__image' src={require(`../images/cloud_image.png`)} width='190%' height='170%' />
-          <img className='loon__image' src={require(`../images/loon_image.png`)} width='10%' height='15%' />
-          <img className='loon2__image' src={require(`../images/loon2_image.png`)} width='120%' height='35%' />
-          <p className='text1__doc'><b>Be in the cloud</b></p>  <br />
-          <p className='text2__doc'> we can help you level up<br />
-            with cutting edge cloud<br />
-            solutions<br /></p>
+        {/* text field */}
+        <Grid item xs={12} md={5} sm={8} className={classes.text} >
+          <b>Impress the curious <br />Customers with data !</b>
         </Grid>
       </Grid>
+
     </Grid>
   )
 }
-export default Pageaws
+export default Timermain
