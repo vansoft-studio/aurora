@@ -83,8 +83,22 @@ class App extends Component {
         {language}
       </Grid>
 
+
     )
   }
+
+      <Grid><SocialNetwork /></Grid>
+
+    </Grid>
+      <div className='App-head' >
+        <Contact />
+      </div>
+    </Grid>
+</Grid>
+</Grid>
+</Grid>
+  )
+
 }
 
 export default App
