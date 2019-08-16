@@ -1,127 +1,91 @@
 /* Importing Grid,react,style and Timer component  */
 
-import React from 'react'
+import React, { Component } from 'react'
 import { Grid } from '@material-ui/core'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
-import Timer from './components/timer-component'
-
+import './App.css'
+import Timermain from './components/timer-main'
 import SocialNetwork from './components/socialnetwork'
-
-
+import MainChart from './components/mainchart'
+import Pageaws from './components/aws-page'
 import Slideshow from './components/image-slider'
-
 import Loginpage from './components/loginmain'
 import Contact from './components/contact-page'
+import Language from './components/language_frame'
 
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = { currentCount: 1 }
+  }
 
-/* Grid setting in responsive */
-const useStyles = makeStyles((theme) => createStyles({
-  root: {
-  },
-  Container: {
-    height: '100vh'
-  },
-  simpleText: {
-    height: '20%',
-    [theme.breakpoints.down('md')]: {
-      height: '5%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      height: '5%'
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: '0%'
-    }
-  },
-  Table: {
-    height: '80%',
-    [theme.breakpoints.down('md')]: {
-      height: '70%',
-      width: '30%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      height: '60%',
-      width: '30%'
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: '60%',
-      width: '20%'
-    }
-  },
-  text: {
-    height: '80%',
-    width: '100%',
-    fontSize: '300%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white',
-    [theme.breakpoints.down('md')]: {
-      height: '30%',
-      width: '50%',
-      fontSize: '200%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      height: '40%',
-      width: '60%',
-      fontSize: '200%'
-    },
-    [theme.breakpoints.down('xs')]: {
-      height: '40%',
-      width: '40%',
-      fontSize: '200%'
+  timer () {
+    this.setState({
+      currentCount: this.state.currentCount + 1
+    })
+
+    if (this.state.currentCount > 8) {
+      clearInterval(this.intervalId)
     }
   }
-}))
-function App() {
-  const classes = useStyles()
-  return (
 
-    <Grid>
+  componentDidMount () {
+    this.intervalId = setInterval(this.timer.bind(this), 7500)
+  }
 
+  componentWillUnmount () {
+    clearInterval(this.intervalId)
+  }
 
-    <Grid>
+  render () {
+    let imageslider
+    let table
+    let graph
+    let socialnetwork
+    let baloon
+    let language
+    let login
+    let contactpage
+    if (this.state.currentCount === 1) {
+      table = (<Slideshow />)
+    }
+    if (this.state.currentCount === 2) {
+      graph = (<Timermain />)
+    }
+    if (this.state.currentCount === 3) {
+      imageslider = (<MainChart />)
+    }
+    if (this.state.currentCount === 4) {
+      login = (<SocialNetwork />)
+    }
+    if (this.state.currentCount === 5) {
+      socialnetwork = (<Pageaws />)
+    }
+    if (this.state.currentCount === 6) {
+      baloon = (<Language />)
+    }
+    if (this.state.currentCount === 7) {
+      contactpage = (<Loginpage />)
+    }
+    if (this.state.currentCount >= 8) {
+      language = (<Contact />)
+    }
+
+    return (
       <Grid>
-        <Slideshow />
+
+        {table}
+        {graph}
+        {imageslider}
+        {login}
+        {socialnetwork}
+        {baloon}
+        {contactpage}
+        {language}
       </Grid>
 
-      <Grid className='App-header'>
-        <Grid container className={classes.Container}>
-          <Grid item xs={12} md={12} className={classes.simpleText} />
-          <Grid item xs={12} md={7} className={classes.Table}>
-            {/* timer calling */}
-            <Timer style={{ width: '100%' }} />
 
-
-          </Grid>
-          {/* text field */}
-          <Grid item xs={12} md={5} sm={8} className={classes.text} >
-            <b>Impress the curious <br />Customers with data !</b>
-          </Grid>
-
-
-          </Grid>
-          {/* text field */}
-          <Grid item xs={12} md={5} sm={8} className={classes.text} >
-            <b>Impress the curious <br />Customers with data !</b>
-          </Grid>
-<Grid>
-    <Grid className='App-header'>
-      <Grid container className={classes.Container}>
-        <Grid item xs={12} md={12} className={classes.simpleText} />
-        <Grid item xs={12} md={7} className={classes.Table}>
-          {/* timer calling */}
-          <Timer style={{ width: '100%' }} />
-
-        </Grid>
-        {/* text field */}
-        <Grid item xs={12} md={5} sm={8} className={classes.text} >
-          <b>Impress the curious <br />Customers with data !</b>
-
-
-        </Grid>
-      </Grid>
+    )
+  }
 
       <Grid><SocialNetwork /></Grid>
 
@@ -134,5 +98,7 @@ function App() {
 </Grid>
 </Grid>
   )
+
 }
+
 export default App

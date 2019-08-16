@@ -155,8 +155,7 @@ function Contact() {
   const classes = useStyles()
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+   <Grid className="App-head">
       <Grid container className={classes.contactContainer} >
         <Grid item xs={12} md={12} className={classes.contactText}>
           <Typography className={classes.contactText1}>It is all about technology and we have the skills to <br />
@@ -240,7 +239,7 @@ function Contact() {
           </Grid>
         </Grid>
       </Grid>
-    </React.Fragment>
+      </Grid>
   )
 }
 export default Contact

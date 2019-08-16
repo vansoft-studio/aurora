@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => createStyles({
 function Loginpage () {
   const classes = useStyles()
   return (
-    <React.Fragment>
+    <Grid className='background_login_img'>
       <Grid container className={classes.contactContainer} >
         <Grid item xs={12} md={12} className={classes.textGap} />
         <Grid item xs={12} md={6} className={classes.LoginTextBox} >
@@ -68,7 +68,7 @@ function Loginpage () {
           <Login />
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Grid>
   )
 }
 
